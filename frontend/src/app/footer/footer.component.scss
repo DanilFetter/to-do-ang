@@ -1,0 +1,18 @@
+.footer{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'Times New Roman', Times, serif;
+  color:#7e3d4a;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+}
+
+.footer p{
+  margin-right: 50px;
+}
