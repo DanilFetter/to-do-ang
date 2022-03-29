@@ -1,26 +1,25 @@
-.work-area-pos{
+.work-area-pos {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.working-area{
-
+.working-area {
   padding-top: 50px;
   width: 55vw;
   height: 91%;
   padding: 30px;
   box-shadow:
-  /* Тень верхнего слоя */
-  0 -1px 1px rgba(0,0,0,0.15),
-  /* Второй слой */
-  0 -10px 0 -5px #eee,
-  /* Тень второго слоя */
-  0 -10px 1px -4px rgba(0,0,0,0.15),
-   /* Третий слой */
-  0 -20px 0 -10px #eee,
-  /* Тень третьего слоя */
-  0 -20px 1px -9px rgba(0,0,0,0.15);
+    /* Тень верхнего слоя */
+    0 -1px 1px rgba(0, 0, 0, 0.15),
+    /* Второй слой */
+    0 -10px 0 -5px #eee,
+    /* Тень второго слоя */
+    0 -10px 1px -4px rgba(0, 0, 0, 0.15),
+    /* Третий слой */
+    0 -20px 0 -10px #eee,
+    /* Тень третьего слоя */
+    0 -20px 1px -9px rgba(0, 0, 0, 0.15);
   /* Отступ для демо */
   padding: 30px;
   border: 1px solid #eee;
@@ -40,7 +39,7 @@
   width: 100%;
 }
 
-button{
+button {
   margin-left: 10px;
   min-width: 115px;
   width: 15vw;
@@ -49,38 +48,39 @@ button{
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid  rgba(0,0,0,.37);
+  border-bottom: 1px solid rgba(0, 0, 0, .37);
   box-sizing: border-box;
 }
 
-.task-blocks{
+.task-blocks {
   width: 110%;
 }
 
-.task-elem{
+.task-elem {
   width: 90%;
   display: flex;
-  gap:10px;
+  gap: 10px;
   justify-content: space-between;
 }
 
-.task-number{
+.task-number {
   display: flex;
   align-items: center;
 }
-.task-text{
+
+.task-text {
   flex-grow: 1;
   display: flex;
   align-items: center;
 }
 
-.icon{
-  width:25px;
+.icon {
+  width: 25px;
   height: 25px;
 }
 
 @media (max-width: 800px) {
-  .working-area{
+  .working-area {
 
     padding-top: 20px;
     width: 90vw
