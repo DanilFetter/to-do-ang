@@ -5,9 +5,6 @@
       <button class="btn">Groceries</button>
       <button class="btn">College</button>
       <button class="btn">Payments</button>
-      <button class="btn">Groceries</button>
-      <button class="btn">College</button>
-      <button class="btn">Payments</button>
     </div>
     <div class="task-area">
       <h1>All Tasks</h1>
@@ -15,8 +12,6 @@
         class="new-input"
         type="text"
         placeholder="Add a new task insdie ‘All’ category"
-        name=""
-        id=""
       />
       <div class="task-block">
         <ul class="task-list">
@@ -25,17 +20,16 @@
               type="checkbox"
               [checked]="item.status"
               class="custom-checkbox"
-              id="taskDone"
-              name="happy"
-              value="yes"
+              id={{item.id}}
             />
-            <label for="taskDone"></label>
+            <label for={{item.id}}></label>
             <span class="task-text">{{item.text}}</span>
             <div class="task-tab">{{item.tabGroupe}}</div>
             <div class="gaper"></div>
             <div  class="delete-button">
+              <i  ></i>
               <img
-              src="../.././assets/Vector.svg"
+              src="../.././assets/delete-button.svg"
               alt=""
             />
             </div>
