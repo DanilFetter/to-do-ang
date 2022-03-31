@@ -1,23 +1,43 @@
-<div style="height: calc(100vh - 200px)" class="wrapper work-area-pos">
+<div class="wrapper">
   <div class="working-area">
-    <form class="example-form">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Print text of you task</mat-label>
-        <input matInput />
-      </mat-form-field>
-      <button mat-button color="primary">Add new task</button>
-    </form>
-
-    <div class="task-blocks">
-      <ul>
-        <li class="task-elem" *ngFor="let task of DisplayedTask; let i = index">
-          <span>{{ i + 1 }}</span>
-          <mat-checkbox class="example-margin" [checked]="task.status">
-          </mat-checkbox>
-          <span class="task-text">{{ task.text }}</span>
-          <img class="icon" src="../../assets/icons8-trash-48.png" />
-        </li>
-      </ul>
+    <div class="side-bar">
+      <button class="btn active-tab">All</button>
+      <button class="btn">Groceries</button>
+      <button class="btn">College</button>
+      <button class="btn">Payments</button>
+    </div>
+    <div class="task-area">
+      <h1>All Tasks</h1>
+      <input
+        class="new-input"
+        type="text"
+        placeholder="Add a new task insdie ‘All’ category"
+        name=""
+        id=""
+      />
+      <div class="task-block">
+        <ul class="task-list">
+          <li class="task" *ngFor="let item of displayedTask">
+            <input
+              type="checkbox"
+              [checked]="item.status"
+              class="custom-checkbox"
+              id="taskDone"
+              name="happy"
+              value="yes"
+            />
+            <label for="taskDone"></label>
+            <span class="task-text">{{item.text}}</span>
+            <div class="task-tab">{{item.tabGroupe}}</div>
+            <div class="gaper"></div>
+            <img
+              class="dalaete-button"
+              src="../.././assets/Vector.svg"
+              alt=""
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
