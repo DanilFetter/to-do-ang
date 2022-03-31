@@ -28,6 +28,7 @@
   align-items: center;
   flex-direction: column;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -151,10 +152,6 @@
   background-color: #e9ecef;
 }
 
-.gaper {
-  flex-grow: 1;
-}
-
 .task-text {
   font-family: 'Lato';
   font-style: normal;
@@ -181,7 +178,12 @@
   color: #FFFFFF;
 }
 
-
+.delete-button {
+  flex-grow: 1;
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
 
 @media (max-width:1058px) {
   .side-bar {
@@ -196,43 +198,67 @@
 
 
 @media (max-width:550px) {
-  .task-area{
+  .task-area {
     padding: 10px 15px;
     width: 100%;
   }
-  .new-input{
+
+  .new-input {
     width: 80%;
     font-size: 10px;
     padding: 5px 10px;
   }
-  .btn{
+
+  .btn {
     font-size: 15px;
   }
+
   .custom-checkbox+label::before {
     width: 12px;
-    height:12px ;
+    height: 12px;
     border-radius: 3px;
   }
-  .task-text{
+
+  .task-text {
     font-size: 15px;
   }
 
 
-  .task-tab{
+  .task-tab {
     padding: 3px 5px;
     width: auto;
     font-size: 10px;
   }
+
   .side-bar {
     font-size: 10px;
-
     padding: 10px 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .task{
+
+  .task {
     gap: 5px;
+  }
+}
+
+
+
+@media (max-width:400px) {
+  .working-area {
+    flex-direction: column;
+  }
+
+  .side-bar {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .new-input {
+    width: 100%;
+    padding: 2px 4px;
   }
 }
