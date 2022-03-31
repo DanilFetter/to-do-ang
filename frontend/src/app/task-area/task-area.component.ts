@@ -7,9 +7,9 @@ import { TaskLoaderService, TaskInterface } from '../task-loader.service';
 })
 
 export class TaskAreaComponent implements OnInit {
-  displayedTask: TaskInterface[] = [];
+  displayedTasks: TaskInterface[] = [];
   constructor(private readonly taskLoaderService: TaskLoaderService) {}
   ngOnInit(): void {
-    this.displayedTask = this.taskLoaderService.getItems();
+    this.displayedTasks = this.taskLoaderService.getItems();
   }
 }

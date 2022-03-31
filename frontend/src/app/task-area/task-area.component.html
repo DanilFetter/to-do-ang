@@ -5,6 +5,9 @@
       <button class="btn">Groceries</button>
       <button class="btn">College</button>
       <button class="btn">Payments</button>
+      <button class="btn">Groceries</button>
+      <button class="btn">College</button>
+      <button class="btn">Payments</button>
     </div>
     <div class="task-area">
       <h1>All Tasks</h1>
@@ -17,7 +20,7 @@
       />
       <div class="task-block">
         <ul class="task-list">
-          <li class="task" *ngFor="let item of displayedTask">
+          <li class="task" *ngFor="let item of displayedTasks">
             <input
               type="checkbox"
               [checked]="item.status"
@@ -30,11 +33,13 @@
             <span class="task-text">{{item.text}}</span>
             <div class="task-tab">{{item.tabGroupe}}</div>
             <div class="gaper"></div>
-            <img
-              class="dalaete-button"
+            <div  class="delete-button">
+              <img
               src="../.././assets/Vector.svg"
               alt=""
             />
+            </div>
+
           </li>
         </ul>
       </div>

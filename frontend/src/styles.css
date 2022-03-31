@@ -1,0 +1,13 @@
+body, html, h1, h2, h3, p, span, button {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+/*# sourceMappingURL=styles.css.map */
