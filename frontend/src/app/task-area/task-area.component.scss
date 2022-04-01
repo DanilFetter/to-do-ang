@@ -1,3 +1,12 @@
+$checkbox-color :#b3d7ff;
+$border-color : #D8D8D8;
+
+%font-family {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+}
+
 .wrapper {
   width: 100vw;
   height: 100vh;
@@ -22,7 +31,7 @@
 .side-bar {
   padding: 139px 51px;
   box-sizing: border-box;
-  border-right: 1px solid #D8D8D8;
+  border-right: 1px solid $border-color;
   color: #525252;
   display: flex;
   align-items: center;
@@ -35,14 +44,11 @@
   align-self: start;
   border: none;
   background: none;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
+  @extend %font-family;
   font-size: 22px;
   line-height: 26px;
   color:
     #525252;
-
 }
 
 .active-tab {
@@ -51,9 +57,7 @@
 
 
 .new-input {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
+  @extend %font-family;
   font-size: 18px;
   line-height: 22px;
   color: #B5B5B5;
@@ -67,9 +71,7 @@
 
 .task-block {
   margin-top: 32px;
-
   width: 98%;
-
 }
 
 .task-area::-webkit-scrollbar {
@@ -132,12 +134,12 @@
 }
 
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
-  border-color: #b3d7ff;
+  border-color: $checkbox-color;
 }
 
 .custom-checkbox:not(:disabled):active+label::before {
-  background-color: #b3d7ff;
-  border-color: #b3d7ff;
+  background-color: $checkbox-color;
+  border-color: $checkbox-color;
 }
 
 .custom-checkbox:focus+label::before {
@@ -153,9 +155,7 @@
 }
 
 .task-text {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
+  @extend %font-family;
   font-size: 18px;
   line-height: 22px;
   color: #5A5A5A;
@@ -166,10 +166,7 @@
   height: 24px;
   background: #EA5959;
   border-radius: 4px;
-
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
+  @extend %font-family;
   font-size: 12px;
   line-height: 14px;
   display: flex;
@@ -254,7 +251,7 @@
   .side-bar {
     flex-direction: row;
     border-right: none;
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid $border-color;
   }
 
   .new-input {
