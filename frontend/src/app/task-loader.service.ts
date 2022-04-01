@@ -13,8 +13,8 @@ export interface TaskInterface {
 export class TaskLoaderService {
   private dataStore: TaskInterface[] = [
     { id: '1', text: 'Feed cat', status: false, tabGroupe: 'Uncategorized' },
-    { id: '1', text: 'Feed cat', status: true, tabGroupe: 'College' },
-    { id: '1', text: 'Feed cat', status: false, tabGroupe: 'Payments' },
+    { id: '2', text: 'Feed cat', status: true, tabGroupe: 'College' },
+    { id: '3', text: 'Feed cat', status: false, tabGroupe: 'Payments' },
   ];
 
   getItems(): TaskInterface[] {
