@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskAreaComponent } from './task-area/task-area.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -18,9 +15,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
