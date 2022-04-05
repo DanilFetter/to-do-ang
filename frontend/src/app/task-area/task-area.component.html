@@ -1,39 +1,23 @@
-<div class="wrapper">
-  <div class="working-area">
-    <div class="side-bar">
-      <button class="btn active-tab">All</button>
-      <button class="btn">Groceries</button>
-      <button class="btn">College</button>
-      <button class="btn">Payments</button>
+<div class="task-area">
+  <h1>All Tasks</h1>
+  <input class="new-input" type="text" placeholder="Add a new task insdie ‘All’ category" />
+
+  <ng-template #taskTemplate let-itemData="item">
+    <input type="checkbox" [checked]="itemData.status" class="custom-checkbox" id="{{ itemData.id }}" />
+    <label for="{{ itemData.id }}"></label>
+    <span class="task-text">{{ itemData.text }}</span>
+    <div class="task-tab">{{ itemData.tabGroupe }}</div>
+    <div class="delete-button">
+      <img src="../.././assets/trash.svg" alt="" />
     </div>
-    <div class="task-area">
-      <h1>All Tasks</h1>
-      <input
-        class="new-input"
-        type="text"
-        placeholder="Add a new task insdie ‘All’ category"
-      />
-      <div class="task-block">
-        <ul class="task-list">
-          <li class="task" *ngFor="let item of displayedTasks">
-            <input
-              type="checkbox"
-              [checked]="item.status"
-              class="custom-checkbox"
-              id={{item.id}}
-            />
-            <label for={{item.id}}></label>
-            <span class="task-text">{{item.text}}</span>
-            <div class="task-tab">{{item.tabGroupe}}</div>
-            <div  class="delete-button">
-              <img
-              src="../.././assets/trash.svg"
-              alt=""
-            />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+  </ng-template>
+
+  <div class="task-block">
+    <ul class="task-list">
+      <li class="task" *ngFor="let item of displayedTasks">
+        <ng-content *ngTemplateOutlet="taskTemplate; context: { item: this.item }">
+        </ng-content>
+      </li>
+    </ul>
   </div>
 </div>
