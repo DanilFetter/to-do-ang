@@ -20,4 +20,30 @@ export class TaskLoaderService {
   getItems(): TaskInterface[] {
     return this.dataStore;
   }
+
+  changeTaskStatus(id:string, status:boolean){  
+     const taskHolder =  this.dataStore.find((elem)=> elem.id === id)   ;
+     if(taskHolder) taskHolder.status = status;
+     return this.dataStore;
+  }
+
+  createNewTask(text:string, tabGroupe:string){
+    if(text.trim()){
+      const newId=Date.now().toString()
+      const newTaskHolder:TaskInterface = { 
+        id: newId,
+        text: text,
+        status: false, 
+        tabGroupe :tabGroupe
+      }
+      this.dataStore.push(newTaskHolder)
+    }
+    return this.dataStore;
+  }
+
+  removeTask(id:string){
+    const rmTaskIndex =  this.dataStore.findIndex((elem)=> elem.id === id)
+    this.dataStore.splice(rmTaskIndex,1)
+    return this.dataStore
+  }
 }

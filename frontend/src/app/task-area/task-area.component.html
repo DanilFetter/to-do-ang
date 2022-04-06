@@ -1,14 +1,14 @@
 <div class="task-area">
-  <h1>All Tasks</h1>
-  <input class="new-input" type="text" placeholder="Add a new task insdie ‘All’ category" />
+  <h1>{{currenTab}} Tasks</h1>
+  <input class="new-input" (keyup)="createTask($event)" type="text" placeholder="Add a new task insdie ‘{{currenTab}}’ category" />
 
   <ng-template #taskTemplate let-itemData="item">
-    <input type="checkbox" [checked]="itemData.status" class="custom-checkbox" id="{{ itemData.id }}" />
+    <input type="checkbox" (click)="checkTask(itemData.id, !itemData.status)" [checked]="itemData.status" class="custom-checkbox" id="{{ itemData.id }}" />
     <label for="{{ itemData.id }}"></label>
     <span class="task-text">{{ itemData.text }}</span>
     <div class="task-tab">{{ itemData.tabGroupe }}</div>
     <div class="delete-button">
-      <img src="../.././assets/trash.svg" alt="" />
+      <img src="../.././assets/trash.svg" alt="" (click)="deleteTask(itemData.id)"/>
     </div>
   </ng-template>
 
