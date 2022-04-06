@@ -1,88 +1,133 @@
-.work-area-pos{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@import "../../assets/_master.scss";
 
-.working-area{
-
-  padding-top: 50px;
-  width: 55vw;
-  height: 91%;
-  padding: 30px;
-  box-shadow:
-  /* Тень верхнего слоя */
-  0 -1px 1px rgba(0,0,0,0.15),
-  /* Второй слой */
-  0 -10px 0 -5px #eee,
-  /* Тень второго слоя */
-  0 -10px 1px -4px rgba(0,0,0,0.15),
-   /* Третий слой */
-  0 -20px 0 -10px #eee,
-  /* Тень третьего слоя */
-  0 -20px 1px -9px rgba(0,0,0,0.15);
-  /* Отступ для демо */
-  padding: 30px;
-  border: 1px solid #eee;
-}
-
-
-.example-form {
-  min-width: 150px;
-  max-width: 800px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.example-full-width {
-  width: 100%;
-}
-
-button{
-  margin-left: 10px;
-  min-width: 115px;
-  width: 15vw;
-  padding: 16.5px 15px;
-  margin-bottom: 1.34375em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid  rgba(0,0,0,.37);
-  box-sizing: border-box;
-}
-
-.task-blocks{
-  width: 110%;
-}
-
-.task-elem{
-  width: 90%;
-  display: flex;
-  gap:10px;
-  justify-content: space-between;
-}
-
-.task-number{
-  display: flex;
-  align-items: center;
-}
-.task-text{
+:host {
   flex-grow: 1;
+}
+
+.task-area {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+  @extend %font-family;
+  padding: 30px 43px 0px 53px;
+}
+
+.new-input {
+  @extend %font-family;
+  font-size: 18px;
+  line-height: 22px;
+  color: #b5b5b5;
+  padding: 10px 27px 15px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  width: 95%;
+  border: none;
+}
+
+.task-block {
+  margin-top: 32px;
+  width: 98%;
+}
+
+.task-area::-webkit-scrollbar {
+  width: 1px;
+}
+
+.task-list {
+  padding: 0;
+}
+
+.task {
+  margin-bottom: 16px;
+  width: 100%;
   display: flex;
   align-items: center;
+  gap: 18px;
 }
 
-.icon{
-  width:25px;
-  height: 25px;
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
-@media (max-width: 800px) {
-  .working-area{
+.custom-checkbox+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
 
-    padding-top: 20px;
-    width: 90vw
-  }
+.custom-checkbox+label::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #ea5959;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.custom-checkbox:checked+label::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url(../../assets/check-mark.svg);
+}
+
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+  border-color: $checkbox-color;
+}
+
+.custom-checkbox:not(:disabled):active+label::before {
+  background-color: $checkbox-color;
+  border-color: $checkbox-color;
+}
+
+.custom-checkbox:focus+label::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.custom-checkbox:focus:not(:checked)+label::before {
+  border-color: #80bdff;
+}
+
+.custom-checkbox:disabled+label::before {
+  background-color: #e9ecef;
+}
+
+.task-text {
+  @extend %font-family;
+  font-size: 18px;
+  line-height: 22px;
+  color: #5a5a5a;
+}
+
+.task-tab {
+  width: 115px;
+  height: 24px;
+  background: #ea5959;
+  border-radius: 4px;
+  @extend %font-family;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.delete-button {
+  flex-grow: 1;
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }

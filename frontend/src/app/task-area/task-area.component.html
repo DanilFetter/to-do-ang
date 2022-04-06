@@ -1,22 +1,23 @@
-<div style="height: calc(100vh - 200px)" class="wrapper work-area-pos">
-  <div class="working-area">
-    <form class="example-form">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Print text of you task</mat-label>
-        <input matInput  />
-      </mat-form-field>
-      <button mat-button color="primary">Add new task</button>
-    </form>
+<div class="task-area">
+  <h1>All Tasks</h1>
+  <input class="new-input" type="text" placeholder="Add a new task insdie ‘All’ category" />
 
-    <div class="task-blocks">
-        <ul>
-          <li class="task-elem">
-            <span class="task-number">1</span>
-            <span class="task-text">Покормить кота</span>
-            <img class="icon" src="../../assets/icons8-trash-48.png">
-          </li>
-        </ul>
+  <ng-template #taskTemplate let-itemData="item">
+    <input type="checkbox" [checked]="itemData.status" class="custom-checkbox" id="{{ itemData.id }}" />
+    <label for="{{ itemData.id }}"></label>
+    <span class="task-text">{{ itemData.text }}</span>
+    <div class="task-tab">{{ itemData.tabGroupe }}</div>
+    <div class="delete-button">
+      <img src="../.././assets/trash.svg" alt="" />
     </div>
+  </ng-template>
 
+  <div class="task-block">
+    <ul class="task-list">
+      <li class="task" *ngFor="let item of displayedTasks">
+        <ng-content *ngTemplateOutlet="taskTemplate; context: { item: this.item }">
+        </ng-content>
+      </li>
+    </ul>
   </div>
 </div>

@@ -1,12 +1,8 @@
-body, html, h1,h2,h3,p,span,button {
-  margin:0;
-}
-
-.wrapper{
+html,
+body {
+  height: 100vh;
   width: 100%;
-  background-color: #fff;
-  content: "";
+  margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import './assets/master';
