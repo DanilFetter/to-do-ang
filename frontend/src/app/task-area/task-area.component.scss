@@ -1,4 +1,4 @@
-@import "../../assets/_master.scss";
+@import "../styles/_variables";
 
 :host {
   flex-grow: 1;
@@ -12,12 +12,10 @@
   height: 100%;
   box-sizing: border-box;
   flex-grow: 1;
-  @extend %font-family;
   padding: 30px 43px 0px 53px;
 }
 
 .new-input {
-  @extend %font-family;
   font-size: 18px;
   line-height: 22px;
   color: #b5b5b5;
@@ -84,12 +82,12 @@
 }
 
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
-  border-color: $checkbox-color;
+  border-color: $blue-color;
 }
 
 .custom-checkbox:not(:disabled):active+label::before {
-  background-color: $checkbox-color;
-  border-color: $checkbox-color;
+  background-color: $blue-color;
+  border-color: $blue-color;
 }
 
 .custom-checkbox:focus+label::before {
@@ -105,7 +103,6 @@
 }
 
 .task-text {
-  @extend %font-family;
   font-size: 18px;
   line-height: 22px;
   color: #5a5a5a;
@@ -116,7 +113,6 @@
   height: 24px;
   background: #ea5959;
   border-radius: 4px;
-  @extend %font-family;
   font-size: 12px;
   line-height: 14px;
   display: flex;
