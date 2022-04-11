@@ -1,4 +1,4 @@
-@import "../styles/_variables";
+@use "../styles/_variables";
 
 :host {
   flex-grow: 1;
@@ -82,12 +82,12 @@
 }
 
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
-  border-color: $blue-color;
+  border-color: variables.$blue-color;
 }
 
 .custom-checkbox:not(:disabled):active+label::before {
-  background-color: $blue-color;
-  border-color: $blue-color;
+  background-color: variables.$blue-color;
+  border-color: variables.$blue-color;
 }
 
 .custom-checkbox:focus+label::before {
