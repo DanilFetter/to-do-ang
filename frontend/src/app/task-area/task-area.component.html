@@ -1,21 +1,47 @@
 <div class="task-area">
-  <h1>{{currenTab}} Tasks</h1>
-  <input class="new-input" (keyup)="createTask($event)" type="text" placeholder="Add a new task insdie ‘{{currenTab}}’ category" />
+  <h1>{{ currenTab }} Tasks</h1>
+
+  <input
+    (keyup.enter)="createTask()"
+    [formControl]="taskText"
+    class="new-input"
+    type="text"
+    placeholder="Add a new task insdie '{{ currenTab }}' category"
+    [class.is-invalid]="taskText.errors && (taskText.dirty || taskText.touched)"
+    [class.valid]="!taskText.errors && (taskText.dirty || taskText.touched)"
+  />
+  <label
+    style="color: red; font-weight: 300;" 
+    *ngIf="taskText.invalid && taskText.value"
+    >This filed invalid</label
+  >
 
   <ng-template #taskTemplate let-itemData="item">
-    <input type="checkbox" (click)="checkTask(itemData.id, !itemData.status)" [checked]="itemData.status" class="custom-checkbox" id="{{ itemData.id }}" />
+    <input
+      type="checkbox"
+      (click)="checkTask(itemData.id, !itemData.status)"
+      [checked]="itemData.status"
+      class="custom-checkbox"
+      id="{{ itemData.id }}"
+    />
     <label for="{{ itemData.id }}"></label>
     <span class="task-text">{{ itemData.text }}</span>
     <div class="task-tab">{{ itemData.tabGroupe }}</div>
     <div class="delete-button">
-      <img src="../.././assets/trash.svg" alt="" (click)="deleteTask(itemData.id)"/>
+      <img
+        src="../.././assets/trash.svg"
+        alt=""
+        (click)="deleteTask(itemData.id)"
+      />
     </div>
   </ng-template>
 
   <div class="task-block">
     <ul class="task-list">
       <li class="task" *ngFor="let item of displayedTasks">
-        <ng-content *ngTemplateOutlet="taskTemplate; context: { item: this.item }">
+        <ng-content
+          *ngTemplateOutlet="taskTemplate; context: { item: this.item }"
+        >
         </ng-content>
       </li>
     </ul>
