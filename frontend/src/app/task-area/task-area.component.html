@@ -17,7 +17,7 @@
   >
 
   <ng-template #taskTemplate let-itemData="item">
-    <label class="container" (click)="checkTask(itemData)">
+    <label class="checkbox-conteiner" (click)="checkTask(itemData)">
       <input type="checkbox" [checked]="itemData.status" />
       <span class="checkmark"></span>
     </label>
