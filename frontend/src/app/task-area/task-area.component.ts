@@ -12,7 +12,10 @@ export class TaskAreaComponent implements OnInit {
   displayedTasks: TaskInterface[] = [];
   currenTab: string = 'All';
 
-  taskText = new FormControl('', [Validators.required, Validators.minLength(4)]);
+  taskText = new FormControl('', [
+    Validators.required,
+    Validators.minLength(4),
+  ]);
 
   ngOnInit(): void {
     this.displayedTasks = this.taskLoaderService.getItems();
@@ -24,19 +27,17 @@ export class TaskAreaComponent implements OnInit {
 
   createTask() {
     const taskText = this.taskText.value;
-    if(this.taskText.valid){
+    
+    if (this.taskText.valid) {
       this.taskText.setValue('');
       this.displayedTasks = this.taskLoaderService.createNewTask(
         taskText,
         this.currenTab
       );
     }
-
   }
 
   deleteTask(id: string) {
     this.displayedTasks = this.taskLoaderService.removeTask(id);
   }
 }
-
-
