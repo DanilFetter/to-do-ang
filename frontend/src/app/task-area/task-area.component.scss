@@ -47,7 +47,11 @@
   gap: 18px;
 }
 
+<<<<<<< HEAD
 .checkbox-conteiner {
+=======
+.container {
+>>>>>>> cc0887d990f07c6b952719356cc244a777d3c168
   display: block;
   position: relative;
   padding-left: 35px;
@@ -58,6 +62,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+<<<<<<< HEAD
 
   input {
     position: absolute;
@@ -106,7 +111,59 @@
   width: 25px;
   background-color: #eee;
   border-radius: 5px;
+=======
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
 }
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 5px;
+
+}
+
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+>>>>>>> cc0887d990f07c6b952719356cc244a777d3c168
+}
+
 
 .task-text {
   font-size: 18px;
