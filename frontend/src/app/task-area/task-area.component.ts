@@ -21,13 +21,13 @@ export class TaskAreaComponent implements OnInit {
     this.displayedTasks = this.taskLoaderService.getItems();
   }
 
-  checkTask(id: string, status: boolean) {
-    this.displayedTasks = this.taskLoaderService.changeTaskStatus(id, status);
+  checkTask(taskInformation:TaskInterface) {
+    this.displayedTasks = this.taskLoaderService.changeTaskStatus(taskInformation.id, taskInformation.status);
   }
 
   createTask() {
     const taskText = this.taskText.value;
-    
+
     if (this.taskText.valid) {
       this.taskText.setValue('');
       this.displayedTasks = this.taskLoaderService.createNewTask(

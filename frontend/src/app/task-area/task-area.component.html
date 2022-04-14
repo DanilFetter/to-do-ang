@@ -11,20 +11,17 @@
     [class.valid]="!taskText.errors && (taskText.dirty || taskText.touched)"
   />
   <label
-    style="color: red; font-weight: 300;" 
+    style="color: red; font-weight: 300"
     *ngIf="taskText.invalid && taskText.value"
     >This filed invalid</label
   >
 
   <ng-template #taskTemplate let-itemData="item">
-    <input
-      type="checkbox"
-      (click)="checkTask(itemData.id, !itemData.status)"
-      [checked]="itemData.status"
-      class="custom-checkbox"
-      id="{{ itemData.id }}"
-    />
-    <label for="{{ itemData.id }}"></label>
+    <label class="container" (click)="checkTask(itemData)">
+      <input type="checkbox" [checked]="itemData.status" />
+      <span class="checkmark"></span>
+    </label>
+
     <span class="task-text">{{ itemData.text }}</span>
     <div class="task-tab">{{ itemData.tabGroupe }}</div>
     <div class="delete-button">
