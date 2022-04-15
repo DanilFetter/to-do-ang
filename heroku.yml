@@ -1,13 +1,3 @@
-version: '3'
-
-services:
-  server:
-    build: ./backend
-    ports:
-      - "3001:3001"
-  client:
-    build: ./frontend
-    ports:
-      - "3000:80"
-    depends_on:
-      - server
+build:
+  docker:
+    web: Dockerfile
