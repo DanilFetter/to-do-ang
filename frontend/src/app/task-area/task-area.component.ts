@@ -10,7 +10,7 @@ import { TaskLoaderService, TaskInterface } from '../task-loader.service';
 export class TaskAreaComponent implements OnInit {
   constructor(private readonly taskLoaderService: TaskLoaderService) {}
   displayedTasks: TaskInterface[] = [];
-  currenTab: string = 'All';
+  currentTab: string = 'All';
 
   taskText = new FormControl('', [
     Validators.required,
@@ -21,23 +21,26 @@ export class TaskAreaComponent implements OnInit {
     this.displayedTasks = this.taskLoaderService.getItems();
   }
 
-  checkTask(taskInformation:TaskInterface) {
-    this.displayedTasks = this.taskLoaderService.changeTaskStatus(taskInformation.id, taskInformation.status);
+  checkTask(taskInformation: TaskInterface): void {
+    this.displayedTasks = this.taskLoaderService.changeTaskStatus(
+      taskInformation.id,
+      taskInformation.status
+    );
   }
 
-  createTask() {
+  createTask(): void {
     const taskText = this.taskText.value;
 
     if (this.taskText.valid) {
       this.taskText.setValue('');
       this.displayedTasks = this.taskLoaderService.createNewTask(
         taskText,
-        this.currenTab
+        this.currentTab
       );
     }
   }
 
-  deleteTask(id: string) {
+  deleteTask(id: string): void {
     this.displayedTasks = this.taskLoaderService.removeTask(id);
   }
 }

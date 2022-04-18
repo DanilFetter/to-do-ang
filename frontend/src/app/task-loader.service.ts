@@ -4,7 +4,7 @@ export interface TaskInterface {
   id: string;
   text: string;
   status: boolean;
-  tabGroupe: string;
+  tabGroup: string;
 }
 
 @Injectable({
@@ -12,9 +12,9 @@ export interface TaskInterface {
 })
 export class TaskLoaderService {
   private dataStore: TaskInterface[] = [
-    { id: '1', text: 'Feed cat', status: false, tabGroupe: 'Uncategorized' },
-    { id: '2', text: 'Feed cat', status: true, tabGroupe: 'College' },
-    { id: '3', text: 'Feed cat', status: false, tabGroupe: 'Payments' },
+    { id: '1', text: 'Feed cat', status: false, tabGroup: 'Uncategorized' },
+    { id: '2', text: 'Feed cat', status: true, tabGroup: 'College' },
+    { id: '3', text: 'Feed cat', status: false, tabGroup: 'Payments' },
   ];
 
   getItems(): TaskInterface[] {
@@ -27,14 +27,14 @@ export class TaskLoaderService {
     return this.dataStore;
   }
 
-  createNewTask(text: string, tabGroupe: string) {
+  createNewTask(text: string, tabGroup: string) {
     if (text.trim()) {
       const newId = Date.now().toString();
       const newTaskHolder: TaskInterface = {
         id: newId,
         text: text,
         status: false,
-        tabGroupe: tabGroupe,
+        tabGroup: tabGroup,
       };
       this.dataStore.push(newTaskHolder);
     }
@@ -42,8 +42,7 @@ export class TaskLoaderService {
   }
 
   removeTask(id: string) {
-    const rmTaskIndex = this.dataStore.findIndex((elem) => elem.id === id);
-    this.dataStore.splice(rmTaskIndex, 1);
+    this.dataStore = this.dataStore.filter((elem) => elem.id !== id);
     return this.dataStore;
   }
 }

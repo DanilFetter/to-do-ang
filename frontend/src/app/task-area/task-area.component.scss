@@ -26,6 +26,11 @@
   border: none;
 }
 
+.error-message {
+  color: red;
+  font-weight: 300;
+}
+
 .task-block {
   margin-top: 32px;
   width: 98%;
@@ -47,12 +52,12 @@
   gap: 18px;
 }
 
-.checkbox-conteiner {
+.custom-checkbox {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 22px;
   cursor: pointer;
+  height: 25px;
+  width: 25px;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -67,7 +72,17 @@
     width: 0;
   }
 
-  :hover input~.checkmark {
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+
+  &:hover input~.checkmark {
     background-color: #ccc;
   }
 
@@ -75,14 +90,14 @@
     background-color: #2196F3;
   }
 
-  input:checked~.checkmark:after {
-    display: block;
-  }
-
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
+  }
+
+  input:checked~.checkmark:after {
+    display: block;
   }
 
   .checkmark:after {
@@ -97,6 +112,7 @@
     transform: rotate(45deg);
   }
 }
+
 
 .task-text {
   font-size: 18px;
@@ -124,7 +140,7 @@
   justify-content: flex-end;
 }
 
-.is-invalid {
+.invalid {
   border: 2px solid red;
 }
 
