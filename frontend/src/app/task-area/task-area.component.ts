@@ -8,7 +8,6 @@ import { TaskLoaderService, TaskInterface } from '../task-loader.service';
   styleUrls: ['./task-area.component.scss'],
 })
 export class TaskAreaComponent implements OnInit {
-  constructor(private readonly taskLoaderService: TaskLoaderService) {}
   displayedTasks: TaskInterface[] = [];
   currentTab: string = 'All';
 
@@ -16,6 +15,8 @@ export class TaskAreaComponent implements OnInit {
     Validators.required,
     Validators.minLength(4),
   ]);
+
+  constructor(private readonly taskLoaderService: TaskLoaderService) {}
 
   ngOnInit(): void {
     this.displayedTasks = this.taskLoaderService.getItems();
