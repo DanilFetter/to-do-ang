@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { TaskLoaderService, TaskInterface } from '../task-loader.service';
+import { TaskLoaderService, Task } from '../task-loader.service';
 
 @Component({
   selector: 'app-task-area',
@@ -8,7 +8,7 @@ import { TaskLoaderService, TaskInterface } from '../task-loader.service';
   styleUrls: ['./task-area.component.scss'],
 })
 export class TaskAreaComponent implements OnInit {
-  displayedTasks: TaskInterface[] = [];
+  displayedTasks: Task[] = [];
   currentTab: string = 'All';
 
   taskText = new FormControl('', [
@@ -22,7 +22,7 @@ export class TaskAreaComponent implements OnInit {
     this.displayedTasks = this.taskLoaderService.getItems();
   }
 
-  checkTask(taskInformation: TaskInterface): void {
+  checkTask(taskInformation: Task): void {
     this.displayedTasks = this.taskLoaderService.changeTaskStatus(
       taskInformation.id,
       taskInformation.status

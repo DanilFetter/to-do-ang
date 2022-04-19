@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
-export interface TaskInterface {
+export interface Task {
   id: string;
   text: string;
   status: boolean;
@@ -12,13 +12,13 @@ export interface TaskInterface {
   providedIn: 'root',
 })
 export class TaskLoaderService {
-  private dataStore: TaskInterface[] = [
+  private dataStore: Task[] = [
     { id: '1', text: 'Feed cat', status: false, tabGroup: 'Uncategorized' },
     { id: '2', text: 'Feed cat', status: true, tabGroup: 'College' },
     { id: '3', text: 'Feed cat', status: false, tabGroup: 'Payments' },
   ];
 
-  getItems(): TaskInterface[] {
+  getItems(): Task[] {
     return this.dataStore;
   }
 
@@ -30,7 +30,7 @@ export class TaskLoaderService {
 
   createNewTask(text: string, tabGroup: string) {
     if (text.trim()) {
-      const newTaskHolder: TaskInterface = {
+      const newTaskHolder: Task = {
         id: UUID.UUID(),
         text: text,
         status: false,
