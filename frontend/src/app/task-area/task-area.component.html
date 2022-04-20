@@ -6,7 +6,7 @@
       invalid: taskText.errors && (taskText.dirty || taskText.touched),
       valid: !taskText.errors && (taskText.dirty || taskText.touched)
     }" />
-  <label class="error-message" *ngIf="taskText.invalid && taskText.value">This filed invalid</label>
+  <label class="error-message" *ngIf="taskText.invalid && taskText.value">This field invalid</label>
 
   <ng-template #taskTemplate let-itemData="item">
     <label class="custom-checkbox" (click)="checkTask(itemData)">
