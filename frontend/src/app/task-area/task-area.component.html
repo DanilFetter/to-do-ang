@@ -3,17 +3,17 @@
 
   <input
     (keyup.enter)="createTask()"
-    [formControl]="taskText"
+    [formControl]="taskTextField"
     class="new-input"
     type="text"
     placeholder="Add a new task insdie '{{ currentTab }}' category"
     [class]="
-      taskText.errors && (taskText.dirty || taskText.touched)
+      taskTextField.errors && (taskTextField.dirty || taskTextField.touched)
         ? 'invalid'
         : 'valid'
     "
   />
-  <label *ngIf="taskText.invalid && taskText.value" class="error-message" 
+  <label *ngIf="taskTextField.invalid && taskTextField.value" class="error-message" 
     >This field invalid</label
   >
 
