@@ -13,7 +13,7 @@
         : 'valid'
     "
   />
-  <label class="error-message" *ngIf="taskText.invalid && taskText.value"
+  <label *ngIf="taskText.invalid && taskText.value" class="error-message" 
     >This field invalid</label
   >
 
@@ -35,7 +35,7 @@
 
   <div class="task-block">
     <ul class="task-list">
-      <li class="task" *ngFor="let item of displayedTasks">
+      <li *ngFor="let item of displayedTasks"  class="task">
         <ng-content
           *ngTemplateOutlet="taskTemplate; context: { item: this.item }"
         >
