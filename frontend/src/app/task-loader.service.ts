@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UUID } from 'angular2-uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface Task {
   id: string;
@@ -31,7 +31,7 @@ export class TaskLoaderService {
   createNewTask(text: string, tabGroup: string) {
     if (text.trim()) {
       const newTaskHolder: Task = {
-        id: UUID.UUID(),
+        id: uuidv4(),
         text: text,
         status: false,
         tabGroup: tabGroup,
