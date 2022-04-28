@@ -11,7 +11,7 @@ export class TaskAreaComponent implements OnInit {
   displayedTasks: Task[] = [];
   currentTab: string = 'All';
 
-  taskTextField = new FormControl('', [
+  newTaskDescriptionField = new FormControl('', [
     Validators.required,
     Validators.minLength(4),
   ]);
@@ -30,10 +30,10 @@ export class TaskAreaComponent implements OnInit {
   }
 
   createTask(): void {
-    const taskTextField = this.taskTextField.value;
+    const taskTextField = this.newTaskDescriptionField.value;
 
-    if (this.taskTextField.valid) {
-      this.taskTextField.setValue('');
+    if (this.newTaskDescriptionField.valid) {
+      this.newTaskDescriptionField.setValue('');
       this.displayedTasks = this.taskLoaderService.createNewTask(
         taskTextField,
         this.currentTab
