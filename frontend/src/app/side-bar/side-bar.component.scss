@@ -1,11 +1,10 @@
-@import '../../assets/_master.scss';
-
+@use "../styles/_variables";
 
 .side-bar {
   height: 100%;
   padding: 139px 51px;
   box-sizing: border-box;
-  border-right: 1px solid $border-color;
+  border-right: 1px solid variables.$gray-color;
   color: #525252;
   display: flex;
   align-items: center;
@@ -18,7 +17,6 @@
   align-self: start;
   border: none;
   background: none;
-  @extend %font-family;
   font-size: 22px;
   line-height: 26px;
   color:
